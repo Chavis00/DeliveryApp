@@ -1,0 +1,53 @@
+html,body{
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: 'Gayathri', sans-serif;
+}
+
+#rain{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  user-select: none;
+}
+
+h1{
+  text-align: center;
+  margin-top: 130px;
+  font-size: 42px;
+  position: relative;
+  color: white;
+}
+
+
+
+
+
+
+
+#options{
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+#options button{
+  padding: 20px;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #95a5a6;
+}
+
+@media only screen and (max-width: 600px) {
+  .raindrop:nth-child(3) {
+    display: none;
+  }
+}

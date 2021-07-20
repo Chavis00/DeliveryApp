@@ -1,0 +1,60 @@
+{% extends 'base_layout.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - jQuery. Fly to cart effect. </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><link rel="stylesheet" href="{% static 'Restaurant/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- wrapper --> 
+<div class="wrapper">
+     <h1>{{restaurant}}</h1>
+ 
+
+    <div class="clear"></div>
+    <!-- items -->
+    <div class="items">
+
+        {% if products %}
+        {% for product in products %} 
+
+        <!-- single item -->
+        <div class="item">
+            <img src="{{product.pic.url}}" alt="item" />
+             <h2>{{product.name}}</h2>
+
+            <p>Price: <em>${{product.price}}</em>
+            </p>
+            <button class="add-to-cart" type="button">
+                <a href="{% url 'delivery:add' product.id %}">Add to cart</a>
+            </button>       
+        </div>
+        <!--/ single item -->
+        
+        {% endfor %}    
+        {% endif %}
+
+    </div>
+    <!--/ items -->
+</div>
+<!--/ wrapper -->
+<!-- partial -->
+
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DeliveryApp</title>
+  <link rel="stylesheet" href="{% static 'home/style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<canvas id="rain"></canvas>
+<link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+
+<div id="container">
+  <h1>DeliveryApp</h1>
+  <div id="options">
+    <a href="/delivery" ><button class="raindrop">Restaurants</button></a>
+    
+    <a href="/partners"><button class="raindrop">Partners</button></a>
+  </div>
+</div>
+<!-- partial -->
+  <script  src="{% static 'home/script.js' %}"></script>
+
+</body>
+</html>

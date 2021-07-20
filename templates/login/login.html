@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Login/ Register Form</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css'><link rel="stylesheet" href="{% static 'Delivery/style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section id="form">
+        
+        <form class="col s12"  method="POST" action="">
+            {% csrf_token %}
+            <div class="row center-align">
+                <h4 class="white-text">login</h4>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="email" type="text" class="validate" name="username">
+                    <label for="email">User</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light">
+                    Login
+                </button>
+            </div>
+                <a href="/delivery/register">Register</a>
+            <ul class="animate">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </form>
+        <form class="col s12"  method="POST" action="">
+            {% csrf_token %}
+            <div class="row center-align">
+                <h4 class="white-text">register</h4>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <label for="email">User</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="input-field">
+
+                        <label for="password">Re-Password</label>
+                    </div>
+                </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit" name="Create User">
+                    Register
+                </button>
+            </div>
+            
+            <ul class="animate">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </form>
+    </section>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script><script  src="{% static 'Delivery/script.js' %}"></script>
+
+</body>
+</html>
+ 

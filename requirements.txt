@@ -1,0 +1,2 @@
+dajango == 3.2
+pillow
