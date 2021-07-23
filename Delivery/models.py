@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.enums import TextChoices
 from django.utils import timezone
 
 #Customer
@@ -23,23 +22,30 @@ class Restaurant(models.Model):
     open = models.TimeField(null=True)
     close = models.TimeField(null=True)
     status = models.BooleanField(null=True, default=0)
-   
-    #Shows if is Open or Close
-    def OpenClose(self):
+    
+    def updateStatus(self):
 
         now = timezone.now()
-        now = now.time()   
+        now = now.time() 
 
         if ((now.hour > self.open.hour) and (now.hour < self.close.hour)) or ((now.hour == self.open.hour and now.minute > self.open.minute and now.minute < self.close.minute)):
             self.status = 1
+        else:
+            self.status = 0
+
+    #Shows if is Open or Close
+    def OpenClose(self):
+
+        self.updateStatus()
+
+        if self.status == 1:
             return "Open"
 
-        self.status = 0
         return "Close"
     
     #If is Close shows the start time
     def OpensAt(self):
-        return "Opens at " + str("{:02d}".format(int(self.open.hour)))+":" + str("{:02d}".format(int(self.open.minute)))
+        return "Opens at " + str("{:02d}".format(int(self.open.hour)))+":" + str("{:02d}".format(int(self.open.minute))) + "hs"
         
     def __str__(self):
         return self.name

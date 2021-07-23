@@ -121,7 +121,7 @@ a.button:hover, a.button:focus {
   width: 150px;
   height: 40px;
   text-indent: -9999px;
-  background: url("http://interactivejoe.com/book-viewer/assets/images/logo.svg");
+  background: url("http://192.168.0.5:8000/images/logo.jpg");
   background-color: #fff;
   transition: background-color 250ms ease-out;
 }
@@ -765,7 +765,6 @@ i.shopping-cart {
 .main-overlay .overlay-preview {
   position: relative;
   display: inline-block;
-  float: right;
   margin-top: 40px;
   width: calc(100% - 310px);
   vertical-align: top;
@@ -842,4 +841,5 @@ i.shopping-cart {
   font-size: 12px;
   text-align: center;
 }
+
 

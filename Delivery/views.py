@@ -1,10 +1,7 @@
 #from .Pedi2.settings import TIME_ZONE
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
-from pytz import HOUR
 from .forms import CreateUserForm
 from django.contrib.auth import login, authenticate, logout
-from django.contrib import messages
 from .models import Restaurant, Product
 from .shoppingCart import ShoppingCart
 
@@ -31,6 +28,10 @@ def registerPage(request):
         "form": form,
     }
     return render(request, "login/register.html", context)
+
+
+def prueba(request):
+    return render(request,"prueba.html")
 
 #Login
 def loginPage(request):
@@ -92,15 +93,18 @@ def restaurant(request, restaurant_id):
 
     #if not restaurant 404
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
-
+    
     #getting all the products
     products = Product.objects.filter(restaurant_id=restaurant_id)
     context = {
         'products': products,
         'user':user,
-        'restaurant': restaurant.name
+        'restaurant': restaurant
     }
     return render(request, "Restaurant/restaurant.html", context)
+
+
+
 
 ########################ShoppingCart################################
 

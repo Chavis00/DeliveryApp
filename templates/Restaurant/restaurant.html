@@ -6,6 +6,8 @@
 {% load static %}
 
 
+{% if restaurant.OpenClose == "Open" %}
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -20,7 +22,7 @@
 <!-- partial:index.partial.html -->
 <!-- wrapper --> 
 <div class="wrapper">
-     <h1>{{restaurant}}</h1>
+    <h1>{{restaurant.name}}</h1>
  
 
     <div class="clear"></div>
@@ -34,7 +36,7 @@
         <div class="item">
             <img src="{{product.pic.url}}" alt="item" />
              <h2>{{product.name}}</h2>
-
+ 
             <p>Price: <em>${{product.price}}</em>
             </p>
             <button class="add-to-cart" type="button">
@@ -48,6 +50,7 @@
 
     </div>
     <!--/ items -->
+    
 </div>
 <!--/ wrapper -->
 <!-- partial -->
@@ -56,5 +59,10 @@
 </body>
 </html>
 
+{% else %}
+<h1>Sorry! We are close... </h1>
+
+
+{% endif %}
 
 {% endblock %}

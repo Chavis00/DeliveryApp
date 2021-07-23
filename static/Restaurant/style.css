@@ -30,6 +30,8 @@ h1 {
     margin: 20px 0;
 }
 .item {
+    display: block;
+
     background-color: #fff;
     float: left;
     margin: 0 10px 10px 0;

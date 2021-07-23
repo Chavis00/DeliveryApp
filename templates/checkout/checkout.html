@@ -1,0 +1,105 @@
+
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=entypo"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/5175/utf-latest.min.css'><link rel="stylesheet" href="{% static 'checkout/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="main">
+  <a href="{% url 'delivery:index' %}">&larr; Keep Buying!</a>
+  <h1>Shopping cart</h1>
+  <h2 class="sub-heading">Free shipping from $100!</h2>
+  
+  <section class="shopping-cart">
+    <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
+
+      <script id="shopping-cart--list-item-template" type="text/template">
+
+        
+
+        {% if request.session.cart.items %}
+
+
+        {% for key,value in request.session.cart.items %}
+
+        <li class="_grid shopping-cart--list-item">
+          
+
+          <div class="_column product-image">
+            <img class="product-image--img" src="{{value.pic}}" alt="Item image" />
+          </div>
+          <div class="_column product-info">
+            <h4 class="product-name">{{value.name}}</h4>
+            <p class="product-desc">alo</p>
+            
+            <div class="price product-single-price">${{value.price}}</div>
+          </div>
+          
+          <div class="_column product-modifiers" data-product-price="{{value.price}}">
+            <div class="_grid">
+              <a class="_btn _column product-subtract" href="{% url 'delivery:substract' value.id %}">&minus;</a>
+              <div class="_column product-qty">{{value.quantity}}</div>
+              <a class="_btn _column product-plus" href="{% url 'delivery:add' value.id %}">&plus;</a>
+            </div>
+            
+            <button class="_btn entypo-trash product-remove" href="{% url 'delivery:delete' value.id %}">Remove</button>
+            <div class="price product-total-price">${{value.qxp}}</div>
+          </div>
+          {% endfor %}
+
+        </li>
+       
+
+
+        {% else %}
+        <tr>
+          <td colspan="3">
+            <div class= "alert alert-danger text-center">
+              The cart is empty
+            </div>
+          </td>
+        </tr>
+        {% endif %}
+
+      </script>
+
+    </ol>
+    
+
+    <footer class="_grid cart-totals">
+      <div class="_column subtotal" id="subtotalCtr">
+        <div class="cart-totals-key">Subtotal</div>
+        <div class="cart-totals-value">${{cartTotalAmount}}</div>
+      </div>
+      <div class="_column shipping" id="shippingCtr">
+        <div class="cart-totals-key">Shipping</div>
+        <div class="cart-totals-value">$4.00</div>
+      </div>
+      <div class="_column total" id="totalCtr">
+        <div class="cart-totals-key">Total</div>
+        <div class="cart-totals-value">${{total}}</div>
+      </div>
+      <div class="_column checkout">
+        <button class="_btn checkout-btn entypo-forward">Confirm</button>
+      </div>
+    </footer>
+
+  </section>
+  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'></script><script  src="{% static 'checkout/script.js' %}"></script>
+
+</body>
+</html>

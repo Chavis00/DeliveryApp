@@ -15,6 +15,7 @@
 
   <nav class="nav-menu nav-effect-1" id="menu-1">
     <h2 class="">Welcome {{user.username}}</h2>     
+    <!-- Cart -->
 
 
     <table>
@@ -72,9 +73,9 @@
     </table>
     <ul>
       
-      <li><a class="" href="#">Settings</a></li>
+      <li><a class="" href="{% url 'delivery:checkout' %}">Checkout</a></li>
       <li><a class="" href="#">Your Adress</a></li>
-      <li><a class="">Logout</a></li>
+      <li><a class="" href="{% url 'delivery:logout' %}">Logout</a></li>
     </ul>
   </nav>
 
@@ -88,7 +89,7 @@
 
         <!-- Logo -->
         <div class="main-logo">
-          <a href="#" class="logo">The Library</a>
+          <a href="{% url 'delivery:index' %}" class="logo">The Library</a>
         </div>
 
         <div class="menu-search">
