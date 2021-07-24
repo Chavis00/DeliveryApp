@@ -30,8 +30,6 @@ def registerPage(request):
     return render(request, "login/register.html", context)
 
 
-def prueba(request):
-    return render(request,"prueba.html")
 
 #Login
 def loginPage(request):
@@ -104,7 +102,8 @@ def restaurant(request, restaurant_id):
     return render(request, "Restaurant/restaurant.html", context)
 
 
-
+def checkout(request):
+    return render(request, "checkout/checkout.html")
 
 ########################ShoppingCart################################
 
