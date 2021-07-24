@@ -26,7 +26,8 @@ class ShoppingCart:
                 "price": str(product.price),
                 "quantity": 1,
                 "pic": product.pic.url,
-                "qxp":str(product.price)
+                "desc": product.desc,
+                
             }
 
         #if the product is in the car, just modify quantity+1
@@ -34,7 +35,6 @@ class ShoppingCart:
             for key, value in self.cart.items():
                 if key == str(product.id):
                     value["quantity"] = value["quantity"]+1
-                    value["qxp"] = int(value["quantity"]) * float(value["price"])               
                     break 
 
         #save the cart modifications
@@ -65,7 +65,6 @@ class ShoppingCart:
                 #if the product id is found, quantity = 1 on de product dictionary
                 if key == str(product.id):
                     value["quantity"] = value["quantity"]-1
-                    value["qxp"] = int(value["quantity"]) * float(value["price"])             
 
 
                     #if there are no more products, delete product dictionary

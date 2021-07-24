@@ -19,7 +19,7 @@
 <div class="main">
   <a href="{% url 'delivery:index' %}">&larr; Keep Buying!</a>
   <h1>Shopping cart</h1>
-  <h2 class="sub-heading">Free shipping from $100!</h2>
+  <h2 class="sub-heading">Time estimated: </h2>
   
   <section class="shopping-cart">
     <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
@@ -41,7 +41,7 @@
           </div>
           <div class="_column product-info">
             <h4 class="product-name">{{value.name}}</h4>
-            <p class="product-desc">alo</p>
+            <p class="product-desc">{{value.desc}}</p>
             
             <div class="price product-single-price">${{value.price}}</div>
           </div>
@@ -86,7 +86,7 @@
         <div class="cart-totals-key">Shipping</div>
         <div class="cart-totals-value">$4.00</div>
       </div>
-      <div class="_column total" id="totalCtr">
+      <div class="_column total">
         <div class="cart-totals-key">Total</div>
         <div class="cart-totals-value">${{total}}</div>
       </div>
