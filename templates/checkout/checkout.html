@@ -19,7 +19,7 @@
 <div class="main">
   <a href="{% url 'delivery:index' %}">&larr; Keep Buying!</a>
   <h1>Shopping cart</h1>
-  <h2 class="sub-heading">Time estimated: </h2>
+  <h2 class="sub-heading">Delivery time estimated: </h2>
   
   <section class="shopping-cart">
     <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
@@ -53,7 +53,7 @@
               <a class="_btn _column product-plus" href="{% url 'delivery:add' value.id %}">&plus;</a>
             </div>
             
-            <button class="_btn entypo-trash product-remove" href="{% url 'delivery:delete' value.id %}">Remove</button>
+            <a class="_btn entypo-trash product-remove" href="{% url 'delivery:delete' value.id %}">Remove</a>
             <div class="price product-total-price">${{value.qxp}}</div>
           </div>
           {% endfor %}

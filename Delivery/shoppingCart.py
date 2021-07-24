@@ -27,6 +27,7 @@ class ShoppingCart:
                 "quantity": 1,
                 "pic": product.pic.url,
                 "desc": product.desc,
+                "qxp":str(product.price)
                 
             }
 
@@ -35,6 +36,7 @@ class ShoppingCart:
             for key, value in self.cart.items():
                 if key == str(product.id):
                     value["quantity"] = value["quantity"]+1
+                    value["qxp"] = str("{:.2f}".format(float(value["quantity"]) * float(value["price"])))
                     break 
 
         #save the cart modifications
@@ -65,7 +67,7 @@ class ShoppingCart:
                 #if the product id is found, quantity = 1 on de product dictionary
                 if key == str(product.id):
                     value["quantity"] = value["quantity"]-1
-
+                    value["qxp"] = str("{:.2f}".format(float(value["quantity"]) * float(value["price"])))
 
                     #if there are no more products, delete product dictionary
                     if value["quantity"]<1:
