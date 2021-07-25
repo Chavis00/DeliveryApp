@@ -1,4 +1,4 @@
-# Delivery App
+# Delivery App Django
 food delivery platform
 
 Admin User:
