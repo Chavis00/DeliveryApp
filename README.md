@@ -1,4 +1,4 @@
-# PedidosApp
+# Delivery App
 food delivery platform
 
 Admin User:
